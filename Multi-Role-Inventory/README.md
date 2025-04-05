@@ -1,12 +1,85 @@
-# React + Vite
+# Multi-Vendor Order Management System  
+**Node.js (Express) Backend + React Frontend**  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack solution for vendors to manage products, customers to place multi-vendor orders, and admins to track analytics.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features  
+### **Backend (Node.js/Express)**  
+- **JWT Authentication** with roles: `admin`, `vendor`, `customer`  
+- **RBAC Middleware** for protected routes  
+- **Product Management** (CRUD operations for vendors)  
+- **Order Processing**  
+  - Auto-split orders by vendor  
+  - Stock validation & deduction (transaction-safe)  
+- **Analytics**  
+  - Revenue per vendor (30 days)  
+  - Top-selling products  
+  - Low-stock alerts (vendor-specific)  
 
-## Expanding the ESLint configuration
+### **Frontend (React)**  
+- Vendor dashboard (product/order management)  
+- Customer order flow  
+- Admin analytics views  
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ⚙️ Setup  
+
+### **Prerequisites**  
+- Node.js ≥ 16  
+- MongoDB (local or Atlas URI)  
+- Git  
+
+### **1. Backend Setup**  
+```bash
+# Clone repo
+git clone [your-repo-link]
+cd backend
+
+# Install dependencies
+npm install
+
+# Configure environment variables
+cp .env.example .env
+# Edit .env with your MongoDB URI, JWT secret, etc.
+
+# Start the server (dev mode)
+npm run dev
+
+
+### **2. Frontend Setup**  
+```bash
+cd frontend
+npm install
+npm start  # Runs on http://localhost:3000
+```
+
+---
+
+## 📂 Project Structure  
+### **Backend**  
+```
+src/
+├── controllers/    # Route handlers
+├── models/         # MongoDB schemas
+├── middleware/     # Auth & RBAC
+├── routes/         # API endpoints
+├── services/       # Business logic
+├── utils/          # Helpers (JWT, error handling)
+└── app.js          # Express setup
+```
+
+### **Frontend**  
+```
+src/
+├── components/     # Reusable UI
+├── pages/          # Views (Admin, Vendor, Customer)
+├── hooks/          # Custom hooks
+├── context/        # Auth state
+└── api/            # Axios requests to backend
+
+
+## 📬 Contact  
+For questions, email: virmanivansh2000@gmail.com
